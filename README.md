@@ -7,10 +7,10 @@ In this project we have developed a machine learning algorithm that predicts mov
 
 This repository contains:
 
-MovieLens_Project_Report.Rmd -> Project report in .rmd format
+Report.Rmd -> Project report in .rmd format
 
-MovieLens_Project_Report.pdf -> Project report in .pdf format
+Report.pdf -> Project report in .pdf format
 
-MovieLens_Project.R -> R-Script that generates the data analysis
+RScript -> R-Script that generates the data analysis
 
 This project was created for the assignment of the EdX Capstone course from the following program: Professional Certificate in Data Science.
