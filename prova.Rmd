@@ -332,9 +332,14 @@ We can see an improvement but this model does not consider the individual user r
 ### III. Movie user effect model
 
 We compute the average rating for user $\mu$, for those that have rated over 100 movies, said penalty term user effect. In fact users affect the ratings positively or negatively.
-
-inserire?????????
-
+```{r, echo = TRUE}
+edx %>% 
+  group_by(userId) %>% 
+  summarize(b_u = mean(rating)) %>% 
+  filter(n()>=100) %>%
+  ggplot(aes(b_u)) + 
+  geom_histogram(bins = 30, color = "black")
+```
 
 There is substantial variability across users as well: some users are very cranky and other love every movie. This implies that further improvement to our model my be:
 $$Y_{u, i} = \mu + b_{i} + b_{u} + \epsilon_{u, i}$$
