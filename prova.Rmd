@@ -137,11 +137,11 @@ summarize(n_users = n_distinct(userId),
 
 Users have a preference to rate movies rather higher than lower as shown by the distribution of ratings below. 4 is the most common rating, followed by 3 and 5. 0.5 is the least common rating.In general half rating are less common than whole star ratings.
 
-```{r rating_distribution, echo = FALSE, fig.height=4, fig.width=5}
+```{r rating_distribution, echo = FALSE}
 
 edx %>%
   ggplot(aes(rating)) +
-  geom_histogram(binwidth = 0.5, color = "black") +
+  geom_histogram(binwidth = 0.25, color = "black") +
   scale_x_discrete(limits = c(seq(0.5,5,0.5))) +
   scale_y_continuous(breaks = c(seq(0, 3000000, 500000))) +
   ggtitle("Rating distribution")
