@@ -42,7 +42,7 @@ RMSE <- function(predicted_ratings, true_ratings){
 }
 
 ```
-Where $y_{u,i)$ is the real rating, $\hat{y}_{u,i}$ is the predicted rating
+
 
 Finally, the best resulting model will be used to predict the movie ratings.
 
@@ -290,7 +290,7 @@ In order to do better than simply predicting the average rating, we incorporate 
 
 ### II.  Movie effect model
 
-To improve above model we focus on the fact that, from experience, we know that some movies are just generally rated higher than others. Higher ratings are mostly linked to popular movies among users and the opposite is true for unpopular movies. We compute the estimated deviation of each movies’ mean rating from the total mean of all movies $\mu$. The resulting variable is called "b" ( as bias ) for each movie "i" $\{b}_{i}$, that represents average ranking for movie $i$:
+To improve above model we focus on the fact that, from experience, we know that some movies are just generally rated higher than others. Higher ratings are mostly linked to popular movies among users and the opposite is true for unpopular movies. We compute the estimated deviation of each movies’ mean rating from the total mean of all movies $\mu$. The resulting variable is called "b" ( as bias ) for each movie "i" $b_{i}$, that represents average ranking for movie $i$:
 $$Y_{u, i} = \mu +b_{i}+ \epsilon_{u, i}$$
 
 The histogram is left skewed, implying that more movies have negative effects
