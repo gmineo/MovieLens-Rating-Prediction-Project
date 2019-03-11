@@ -42,6 +42,7 @@ RMSE <- function(predicted_ratings, true_ratings){
 }
 
 ```
+Where $y_{u,i)$ is the real rating, $\hat{y}_{u,i}$ is the predicted rating
 
 Finally, the best resulting model will be used to predict the movie ratings.
 
