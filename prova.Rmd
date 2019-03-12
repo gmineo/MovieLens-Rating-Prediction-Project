@@ -480,3 +480,14 @@ With the optimal model characterised by the lowest RMSE value (0.8648170) lower 
 We could also affirm that improvements in the RMSE could be achieved by adding other effect (genre, year, age,..).  Other different machine learning models could also improve the results further, but hardware limitations as the RAM are a constraint.
 
 
+# Appendix - Enviroment
+
+```{r}
+print("Operating System:")
+version
+```
+
+```{r}
+print("All installed packages")
+installed.packages()
+```
