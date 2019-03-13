@@ -454,7 +454,7 @@ rmse_results %>% knitr::kable()
 
 The RMSE values for all the models are the following:
 
-```{r rmse_results3, echo = TRUE}
+```{r rmse_results3, echo = FALSE}
 
 rmse_results %>% knitr::kable()
 
