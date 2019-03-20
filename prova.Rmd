@@ -449,12 +449,13 @@ rmse_results %>% knitr::kable()
 
 ```
 
+\pagebreak
 
 # Results
 
 The RMSE values for all the models are the following:
 
-```{r rmse_results3, echo = TRUE}
+```{r rmse_results3, echo = FALSE}
 
 rmse_results %>% knitr::kable()
 
@@ -479,6 +480,7 @@ The regularized model including the effect of user is characterized by the lower
 With the optimal model characterised by the lowest RMSE value (0.8648170) lower than the initial evaluation criteria (0.8775) given by the goal of the present project.
 We could also affirm that improvements in the RMSE could be achieved by adding other effect (genre, year, age,..).  Other different machine learning models could also improve the results further, but hardware limitations as the RAM are a constraint.
 
+\pagebreak
 
 # Appendix - Enviroment
 
