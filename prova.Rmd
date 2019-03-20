@@ -334,12 +334,12 @@ We can see an improvement but this model does not consider the individual user r
 
 We compute the average rating for user $\mu$, for those that have rated over 100 movies, said penalty term user effect. In fact users affect the ratings positively or negatively.
 ```{r, echo = TRUE}
-edx %>% 
-  group_by(userId) %>% 
-  summarize(b_u = mean(rating)) %>% 
-  filter(n()>=100) %>%
-  ggplot(aes(b_u)) + 
-  geom_histogram(bins = 30, color = "black")
+user_avgs<- edx %>% 
+  left_join(movie_avgs, by='movieId') %>%
+  group_by(userId) %>%
+  summarize(b_u = mean(rating - mu - b_i))
+user_avgs%>% qplot(b_u, geom ="histogram", bins = 30, data = ., color = I("black"))
+
 ```
 
 There is substantial variability across users as well: some users are very cranky and other love every movie. This implies that further improvement to our model my be:

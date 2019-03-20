@@ -142,6 +142,7 @@ movie_avgs <- edx %>%
 movie_avgs %>% qplot(b_i, geom ="histogram", bins = 10, data = ., color = I("black"),
                      ylab = "Number of movies", main = "Number of movies with the computed b_i")
 
+
 # Test and save rmse results 
 predicted_ratings <- mu +  validation %>%
   left_join(movie_avgs, by='movieId') %>%
@@ -156,12 +157,12 @@ rmse_results %>% knitr::kable()
 ## Movie and user effect model ##
 
 # Plot penaly term user effect #
-edx %>% 
-  group_by(userId) %>% 
-  summarize(b_u = mean(rating)) %>% 
-  filter(n()>=100) %>%
-  ggplot(aes(b_u)) + 
-  geom_histogram(bins = 30, color = "black")
+user_avgs<- edx %>% 
+  left_join(movie_avgs, by='movieId') %>%
+  group_by(userId) %>%
+  summarize(b_u = mean(rating - mu - b_i))
+user_avgs%>% qplot(b_u, geom ="histogram", bins = 30, data = ., color = I("black"))
+
 
 user_avgs <- edx %>%
 left_join(movie_avgs, by='movieId') %>%
