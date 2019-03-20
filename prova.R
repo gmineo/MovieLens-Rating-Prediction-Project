@@ -1,7 +1,11 @@
+#################################################
+# MovieLens Rating Prediction Project Code 
+################################################
 
 #############################################################
 # Create edx set, validation set, and submission file
 #############################################################
+
 # Note: this process could take a couple of minutes for loading required package: tidyverse and package caret
 if(!require(tidyverse)) install.packages("tidyverse", repos = "http://cran.us.r-project.org")
 if(!require(caret)) install.packages("caret", repos = "http://cran.us.r-project.org")
@@ -35,25 +39,20 @@ removed <- anti_join(temp, validation)
 edx <- rbind(edx, removed)
 rm(dl, ratings, movies, test_index, temp, movielens, removed)
 
-
-
-
-
+##Data Exploration##
 
 head(edx) %>%
   print.data.frame()
 
 
-
-
-
 summary(edx)
 
-
+# Number of unique movies and users in the edx dataset 
 edx %>%
   summarize(n_users = n_distinct(userId), 
             n_movies = n_distinct(movieId))
 
+# Ratings distribution
 edx %>%
   ggplot(aes(rating)) +
   geom_histogram(binwidth = 0.25, color = "black") +
@@ -107,18 +106,23 @@ edx %>%
   scale_x_discrete(limits = c(seq(0.5,5,0.5))) +
   theme_light()
 
-
-
+#### Model Validation #####
+## Naive Model: just the mean ##
+# Compute the dataset's mean rating
 mu <- mean(edx$rating)
 mu
 
-
+## Test results based on simple prediction
 naive_rmse <- RMSE(validation$rating, mu)
 naive_rmse
 
+## Check results
+## Save prediction in data frame
 rmse_results <- data_frame(method = "Average movie rating model", RMSE = naive_rmse)
 rmse_results %>% knitr::kable()
 
+# simple model taking into account the movie effect b_i
+#subtract the rating minus the mean for each rating the movie received
 movie_avgs <- edx %>%
   group_by(movieId) %>%
   summarize(b_i = mean(rating - mu))
