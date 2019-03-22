@@ -1,5 +1,5 @@
 # MovieLens-Rating-Prediction-Project
-Final Project - HarvardX: PH125.9x Capstone Course 
+Final Project - HarvardX: PH125.9x Capstone Course for the Data Science Professional Certificate
 
 Movie Recommendation System: algorithm to predict user ratings of movies
 
