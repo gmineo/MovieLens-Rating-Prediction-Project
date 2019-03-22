@@ -166,6 +166,7 @@ rmse_results %>% knitr::kable()
 user_avgs<- edx %>% 
   left_join(movie_avgs, by='movieId') %>%
   group_by(userId) %>%
+  filter(n() >= 100) %>%
   summarize(b_u = mean(rating - mu - b_i))
 user_avgs%>% qplot(b_u, geom ="histogram", bins = 30, data = ., color = I("black"))
 

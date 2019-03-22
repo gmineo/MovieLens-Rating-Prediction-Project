@@ -19,7 +19,7 @@ Then the given dataset will be prepared and setup. An exploratory data analysis 
 
 ## Introduction
 
-Recommendation systems use ratings that users have given items to make specific recommendations. Companies that sell many products to many customers and permit these customers to rate their products, like Amazon, are able to collect massive datasets that can be used to predict what rating a particular user will give a specific item. Items for which a high rating is predicted for a given user are then recommended to that user. 
+Recommendation systems use ratings that users have given to items to make specific recommendations. Companies that sell many products to many customers and permit these customers to rate their products, like Amazon, are able to collect massive datasets that can be used to predict what rating a particular user will give to a specific item. Items for which a high rating is predicted for a given user are then recommended to that user. 
 
 The same could be done for other items, as movies for instance in our case. Recommendation systems are one of the most used models in machine learning algorithms. In fact the success of Netflix is said to be based on its strong recommendation system. The Netflix prize (open competition for the best collaborative filtering algorithm to predict user ratings for films, based on previous ratings without any other information about the users or films), in fact, represent the high importance of algorithm for products recommendation system.
 
@@ -283,7 +283,7 @@ rmse_results %>% knitr::kable()
 
 ```
 
-This give us our baseline RMSE to compare next modelling approaches against.
+This give us our baseline RMSE to compare with next modelling approaches.
 
 In order to do better than simply predicting the average rating, we incorporate some of insights we gained during the exploratory data analysis.
 
@@ -385,7 +385,7 @@ Until now, we computed standard error and constructed confidence intervals to ac
 
 ### IV. Regularized movie and user effect model
 
-So estimates of $b_{i}$ and $b_{u}$ are caused by movies with very few ratings and in some users that only rated a very small number of movies. Hence this can strongly influence the prediction. The use of the regularization help to penalize these aspects. We should find the value of lambda (that is a tuning parameter) that will minimize the RMSE. This shrinks the $b_{i}$ and $b_{u}$ in case of small number of ratings.
+So estimates of $b_{i}$ and $b_{u}$ are caused by movies with very few ratings and in some users that only rated a very small number of movies. Hence this can strongly influence the prediction. The use of the regularization permits to penalize these aspects. We should find the value of lambda (that is a tuning parameter) that will minimize the RMSE. This shrinks the $b_{i}$ and $b_{u}$ in case of small number of ratings.
 
 
 ```{r lambdas, echo = TRUE}
@@ -453,7 +453,7 @@ rmse_results %>% knitr::kable()
 
 # Results
 
-The RMSE values for all the models are the following:
+The RMSE values of all the represented models are the following:
 
 ```{r rmse_results3, echo = FALSE}
 
@@ -466,7 +466,7 @@ We therefore found the lowest value of RMSE that is 0.8648170.
 
 # Discussion
 
-So we can confirm that the final model for our projects is the following:
+So we can confirm that the final model for our project is the following:
 
 $$Y_{u, i} = \mu + b_{i} + b_{u} + \epsilon_{u, i}$$
 
@@ -477,8 +477,8 @@ This model work well if the average user doesn't rate a particularly good/popula
 
 We can affirm to have built a machine learning algorithm to predict movie ratings with MovieLens dataset.
 The regularized model including the effect of user is characterized by the lower RMSE value and is hence the optimal model to use for the present project.
-With the optimal model characterised by the lowest RMSE value (0.8648170) lower than the initial evaluation criteria (0.8775) given by the goal of the present project.
-We could also affirm that improvements in the RMSE could be achieved by adding other effect (genre, year, age,..).  Other different machine learning models could also improve the results further, but hardware limitations as the RAM are a constraint.
+The optimal model characterised by the lowest RMSE value (0.8648170) lower than the initial evaluation criteria (0.8775) given by the goal of the present project.
+We could also affirm that improvements in the RMSE could be achieved by adding other effect (genre, year, age,..). Other different machine learning models could also improve the results further, but hardware limitations, as the RAM, are a constraint.
 
 \pagebreak
 
