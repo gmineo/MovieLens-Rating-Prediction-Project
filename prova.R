@@ -1,3 +1,9 @@
+## Gabriele Mineo
+## MovieLens Project 
+## Capstone Project
+## https://courses.edx.org/courses/course-v1:HarvardX+PH125.9x+2T2018/courseware/dd9a048b16ca477a8f0aaf1d888f0734/a8a6c69c3703470192c19bf7bc16175b/?child=first
+## https://github.com/gmineo/
+
 #################################################
 # MovieLens Rating Prediction Project Code 
 ################################################
