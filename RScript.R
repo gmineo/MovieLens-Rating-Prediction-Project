@@ -1,6 +1,6 @@
 ## Gabriele Mineo
 ## MovieLens Project 
-## Capstone Project
+## HarvardX: PH125.9x - Capstone Project
 ## https://github.com/gmineo/
 
 #################################################
